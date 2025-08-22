@@ -1,15 +1,16 @@
 import React from "react";
 import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
+import { EvenDetailsEventDetails } from "../components/EventDetailsPage";
 
-const ProfilePage = () => {
+const EventDetailsPage = () => {
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-white">
       <Header
         title={
           (
             <div className="flex w-[calc(100%-90px)] justify-between">
-              <div>Thông tin tài khoản</div>
+              <div>Chi tiết sự kiện</div>
             </div>
           ) as unknown as string
         }
@@ -20,9 +21,11 @@ const ProfilePage = () => {
           </div>
         }
       />
-      <div className="flex-1 overflow-auto bg-[#F8F8F8] p-[16px] hide-scrollbar"></div>
+      <div className="flex-1 overflow-auto bg-[#FFFFFF]">
+        <EvenDetailsEventDetails />
+      </div>
     </Page>
   );
 };
 
-export default ProfilePage;
+export default EventDetailsPage;

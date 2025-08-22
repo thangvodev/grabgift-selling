@@ -1,1 +1,1 @@
-export { default as HistoryPageTabs } from "./tabs";
+export { default as HistoryPageHistoryList } from "./history-list";
