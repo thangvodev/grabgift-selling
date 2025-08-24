@@ -25,9 +25,9 @@ dayjs.extend(timezone);
 
 import { AppProvider } from "./presentation/context/AppContext";
 import HomePage from "./presentation/pages/HomePage";
-import HistoryPage from "./presentation/pages/HistoryPage";
-import ProfilePage from "./presentation/pages/ProfilePage";
-import EventDetailsPage from "./presentation/pages/EventDetailsPage";
+import CartPage from "./presentation/pages/CartPage";
+import OrderPage from "./presentation/pages/OrderPage";
+import OrderDetailsPage from "./presentation/pages/OrderDetailsPage";
 
 const Layout = () => {
   return (
@@ -51,16 +51,16 @@ const router = createBrowserRouter(
           element: <HomePage />,
         },
         {
-          path: "/history",
-          element: <HistoryPage />,
+          path: "/cart",
+          element: <CartPage />,
         },
         {
-          path: "/profile",
-          element: <ProfilePage />,
+          path: "/order",
+          element: <OrderPage />,
         },
         {
-          path: "/event",
-          element: <EventDetailsPage />,
+          path: "/order-details",
+          element: <OrderDetailsPage />,
         },
       ],
     },
@@ -75,7 +75,7 @@ const MyApp = () => {
         <ConfigProvider
           theme={{
             token: {
-              colorPrimary: "#70C89A",
+              colorPrimary: "#4884FF",
               fontFamily:
                 "'Inter',-apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
             },

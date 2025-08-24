@@ -1,16 +1,16 @@
-import React, { FC } from "react";
-import { Header, Page } from "zmp-ui";
+import React from "react";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
-import { HistoryPageHistoryList } from "../components/HistoryPage";
+import { Header, Page } from "zmp-ui";
+import { CartPageCart } from "../components/CartPage";
 
-const HistoryPage: FC = () => {
+const CartPage = () => {
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-white">
       <Header
         title={
           (
             <div className="flex w-[calc(100%-32px)] justify-center">
-              <div>Lịch sử tham gia</div>
+              <div>Giỏ hàng</div>
             </div>
           ) as unknown as string
         }
@@ -21,11 +21,11 @@ const HistoryPage: FC = () => {
           </div>
         }
       />
-      <div className="flex-1 overflow-auto bg-surface py-[12px]">
-        <HistoryPageHistoryList />
+      <div className="flex-1 overflow-auto bg-[#F1FAFD]">
+        <CartPageCart />
       </div>
     </Page>
   );
 };
 
-export default HistoryPage;
+export default CartPage;

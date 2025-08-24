@@ -1,16 +1,16 @@
 import React from "react";
 import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
-import { EvenDetailsEventDetails } from "../components/EventDetailsPage";
+import { OrderDetailsPageOrder } from "../components/OrderDetailsPage";
 
-const EventDetailsPage = () => {
+const OrderDetailsPage = () => {
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-white">
       <Header
         title={
           (
-            <div className="flex w-[calc(100%-90px)] justify-between">
-              <div>Chi tiết sự kiện</div>
+            <div className="flex w-[calc(100%-32px)] justify-center">
+              <div>Đơn hàng #12324</div>
             </div>
           ) as unknown as string
         }
@@ -21,11 +21,11 @@ const EventDetailsPage = () => {
           </div>
         }
       />
-      <div className="flex-1 overflow-auto bg-[#FFFFFF]">
-        <EvenDetailsEventDetails />
+      <div className="flex-1 overflow-auto bg-[#F1FAFD]">
+        <OrderDetailsPageOrder />
       </div>
     </Page>
   );
 };
 
-export default EventDetailsPage;
+export default OrderDetailsPage;

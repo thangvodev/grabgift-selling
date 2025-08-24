@@ -4,22 +4,17 @@ import {
   Collapse,
   Divider,
   ConfigProvider,
-  theme,
 } from "antd";
 import React, { FC, useState } from "react";
-import ChevronBlue from "../../static/icons/chevron-right-blue.png";
 import clsx from "clsx";
 
-const { useToken } = theme;
-
 const Checkbox: CheckboxType = (props) => {
-  const { token } = useToken();
-
   return (
     <ConfigProvider
       theme={{
         token: {
-          colorPrimaryHover: token.colorPrimary,
+          colorPrimary: props.color ? props.color : "#FF7B7B",
+          colorPrimaryHover: props.color ? props.color : "#FF7B7B",
         },
       }}
     >
@@ -57,7 +52,7 @@ const NestedCheckbox: FC<NestedCheckboxProps> = ({
       expandIconPosition="end"
       expandIcon={({ isActive }) => (
         <img
-          src={ChevronBlue}
+          // src={ChevronBlue}
           className={clsx("size-[20px] object-cover", {
             "rotate-90": isActive,
           })}
@@ -111,7 +106,7 @@ const NestedCheckbox: FC<NestedCheckboxProps> = ({
 
 export { NestedCheckbox, Checkbox };
 
-type CheckboxType = FC<OriginalCheckboxProps> & {
+type CheckboxType = FC<OriginalCheckboxProps & { color?: string }> & {
   Group: typeof OriginalCheckbox.Group;
 };
 

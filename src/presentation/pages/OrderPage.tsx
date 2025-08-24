@@ -1,15 +1,16 @@
 import React from "react";
 import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
+import { OrderPageOrderDetails } from "../components/OrderPage";
 
-const ProfilePage = () => {
+const OrderPage = () => {
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-white">
       <Header
         title={
           (
-            <div className="flex w-[calc(100%-90px)] justify-between">
-              <div>Thông tin tài khoản</div>
+            <div className="flex w-[calc(100%-32px)] justify-center">
+              <div>Đơn hàng #12324</div>
             </div>
           ) as unknown as string
         }
@@ -20,9 +21,11 @@ const ProfilePage = () => {
           </div>
         }
       />
-      <div className="flex-1 overflow-auto bg-[#F8F8F8] p-[16px] hide-scrollbar"></div>
+      <div className="flex-1 overflow-auto bg-[#F1FAFD]">
+        <OrderPageOrderDetails />
+      </div>
     </Page>
   );
 };
 
-export default ProfilePage;
+export default OrderPage;

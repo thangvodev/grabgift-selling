@@ -1,1 +1,1 @@
-export { default as HomePageEventList } from "./event-list";
+export { default as HomePageLayout } from "./layout";

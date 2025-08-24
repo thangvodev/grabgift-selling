@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { ConfigProvider, Tag as OriginTag, TagProps } from "antd";
-import CheckIconMini from "../../static/icons/check-icon-mini.png";
+import CheckMarkIcon from "../icons/CheckMarkIcon";
 
 const Tag: FC<Props> = ({ color, ...rest }) => {
   return (
@@ -19,6 +19,7 @@ const CheckableTag: FC<CTagProps> = ({
   checked,
   onCheckChange,
   className,
+  checkIcon,
   ...rest
 }) => {
   return (
@@ -31,22 +32,22 @@ const CheckableTag: FC<CTagProps> = ({
         <div className="relative">
           <OriginTag
             color="blue"
-            className={`m-0 ${className}`}
+            className={`m-0 p-0 ${className}`}
             onClick={() => onCheckChange?.(false)}
             {...rest}
           />
-          <div className="absolute bottom-0 right-0 size-[10px]">
-            <img
-              src={CheckIconMini}
-              alt=""
-              className="size-full object-cover"
+          {checkIcon ? (
+            checkIcon
+          ) : (
+            <CheckMarkIcon
+              className={`absolute bottom-0 right-0 size-[10px] text-green6`}
             />
-          </div>
+          )}
         </div>
       ) : (
         <OriginTag
           color="white"
-          className={`m-0 border !border-stroke1 !text-gray8 ${className}`}
+          className={`m-0 border !border-stroke1 p-0 !text-gray8 ${className}`}
           onClick={() => onCheckChange?.(true)}
           {...rest}
         />
@@ -65,4 +66,5 @@ type CTagProps = {
   color?: string;
   checked?: boolean;
   onCheckChange?: (checked: boolean) => void;
+  checkIcon?: React.ReactNode;
 } & TagProps;
