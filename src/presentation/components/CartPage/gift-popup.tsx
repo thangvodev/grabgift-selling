@@ -57,7 +57,13 @@ export const GiftPopup: FC<Props> = ({ children }) => {
           <div className="flex flex-col items-center gap-[12px] pb-[49px] pt-[30px]">
             {/* Head */}
             <div className="flex flex-col items-center gap-[5px]">
-              <div className="text-[22px] font-bold text-[#E51111]">
+              <div
+                className="!bg-clip-text text-[22px] font-bold uppercase leading-[120%] text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #F77F7F 0%, #E51111 100%)",
+                }}
+              >
                 Chúc mừng
               </div>
               <div className="text-xs font-medium text-error3">

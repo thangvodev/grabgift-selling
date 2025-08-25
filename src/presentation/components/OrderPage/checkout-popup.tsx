@@ -60,7 +60,7 @@ export const CheckoutPopup: FC<Props> = ({ children }) => {
               <Button
                 text={
                   <span className="text-sm font-medium text-white">
-                    Tiếp tục mua hàng
+                    Chi tiết đơn hàng
                   </span>
                 }
                 className="flex h-[33px] flex-none items-center justify-center rounded-[40px]"

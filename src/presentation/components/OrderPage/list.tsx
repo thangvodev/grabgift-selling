@@ -13,11 +13,11 @@ import GiftIcon from "../icons/GiftIcon";
 
 export const OrderList = () => {
   return (
-    <div className="flex h-[calc(100%-240px)] -translate-y-[22px] flex-col gap-[12px] overflow-auto rounded-t-[20px] bg-[#F1FAFD] pb-[75px]">
+    <div className="flex -translate-y-[22px] flex-col gap-[12px] rounded-t-[20px] bg-[#F1FAFD] pb-[75px]">
       {/* Top section */}
       <div className="flex flex-col gap-[14px] bg-white px-[14px] pb-[14px] pt-[22px]">
         <div className="flex gap-[12px]">
-          <div className="bg-orange1 size-fit rounded-[6.4px] p-[6.4px]">
+          <div className="size-fit rounded-[6.4px] bg-orange1 p-[6.4px]">
             <LocationIcon className="text-orange6" />
           </div>
           <div className="flex flex-col gap-[4px]">

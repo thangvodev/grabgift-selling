@@ -36,7 +36,7 @@ export const OrderList = () => {
       {/* Top section */}
       <div className="flex flex-col gap-[14px] bg-white px-[14px] pb-[14px] pt-[22px]">
         <div className="flex gap-[12px]">
-          <div className="bg-orange1 size-fit rounded-[6.4px] p-[6.4px]">
+          <div className="size-fit rounded-[6.4px] bg-orange1 p-[6.4px]">
             <LocationIcon className="text-orange6" />
           </div>
           <div className="flex flex-col gap-[4px]">
@@ -127,7 +127,7 @@ export const OrderList = () => {
         </div>
       </div>
       {/* Footer buttons */}
-      <div className="flex flex-col gap-[12px] bg-white px-[16px] pt-[16px]">
+      <div className="-mt-[6px] flex flex-col gap-[12px] bg-white px-[16px] pt-[16px]">
         <Button
           text={
             <span className="text-base font-medium text-white">
