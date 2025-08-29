@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Header, Page } from "zmp-ui";
 import { HomePageLayout } from "../components/HomePage";
 import { Button } from "../components/common/button";
@@ -6,6 +6,8 @@ import SearchIcon from "../components/icons/SearchIcon";
 import { CartFloatButton } from "../components/CartPage";
 
 const HomePage: FC = () => {
+  const [isSearching, setSsSearching] = useState<boolean>(false);
+
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-[#F0F5FF]">
       <Header
@@ -21,6 +23,7 @@ const HomePage: FC = () => {
               <Button.Icon
                 icon={<SearchIcon className="size-[16px] text-[#4884FF]" />}
                 className="flex size-[28px] items-center justify-center rounded-[40px] bg-secondary1"
+                onClick={() => setSsSearching(!isSearching)}
               />
             </div>
           ) as unknown as string
@@ -32,7 +35,7 @@ const HomePage: FC = () => {
         }}
       />
       <div className="flex-1 overflow-auto bg-white">
-        <HomePageLayout />
+        <HomePageLayout isSearching={isSearching} />
         <CartFloatButton />
       </div>
     </Page>

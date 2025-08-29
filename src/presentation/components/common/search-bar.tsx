@@ -1,13 +1,7 @@
 import { AutoComplete, AutoCompleteProps, ConfigProvider, Input } from "antd";
-import React, {
-  useRef,
-  useState,
-  useImperativeHandle,
-  useEffect,
-  FC,
-} from "react";
-import CloseIcon from "../../static/icons/close-circle-icon.png";
-import SearchIcon from "../../static/icons/search-icon-green.png";
+import React, { FC } from "react";
+import CloseFilledIcon from "../icons/CloseFilledIcon";
+import SearchIcon from "../icons/SearchIcon";
 
 export interface SearchBarRef {
   dropdownHeight: number | null;
@@ -35,7 +29,7 @@ const SearchBar = React.forwardRef<SearchBarRef, SearchBarProps>(
       suffixIcon,
       prefix,
       allowClear = {
-        clearIcon: <img src={CloseIcon} className="size-[24px] object-cover" />,
+        clearIcon: <CloseFilledIcon />,
       },
       onSearch,
       onClear,
@@ -92,17 +86,7 @@ const SearchBar = React.forwardRef<SearchBarRef, SearchBarProps>(
             <Input
               placeholder={placeholder}
               prefix={prefix}
-              suffix={
-                suffixIcon ? (
-                  suffixIcon
-                ) : (
-                  <img
-                    src={SearchIcon}
-                    alt=""
-                    className="size-[24px] object-cover"
-                  />
-                )
-              }
+              suffix={suffixIcon ? suffixIcon : <SearchIcon />}
               className={`z-10 text-sm font-normal ${className}`}
               allowClear={allowClear as { clearIcon: React.ReactNode }}
               onClear={onClear}
@@ -122,7 +106,7 @@ const SearchBarNoPopup: FC<SearchBarProps> = ({
   suffixIcon,
   className,
   allowClear = {
-    clearIcon: <img src={CloseIcon} className="size-[24px] object-cover" />,
+    clearIcon: <CloseFilledIcon />,
   },
   onClear,
   value,
@@ -142,18 +126,7 @@ const SearchBarNoPopup: FC<SearchBarProps> = ({
       <Input
         placeholder={placeholder}
         prefix={prefix}
-        suffix={
-          suffixIcon ? (
-            suffixIcon
-          ) : (
-            <img
-              src={SearchIcon}
-              alt=""
-              className="size-[24px] object-cover"
-              onClick={onSubmit}
-            />
-          )
-        }
+        suffix={suffixIcon ? suffixIcon : <SearchIcon />}
         className={`z-10 text-sm font-normal ${className}`}
         allowClear={allowClear as { clearIcon: React.ReactNode }}
         onClear={onClear}

@@ -15,10 +15,15 @@ const ProductList: FC<Props> = ({
   direction = "horizontal",
   compact = false,
   hideImage = false,
+  isSearching,
 }) => {
   return (
-    <div className="flex flex-col gap-[14px] bg-white px-[16px] pt-[20px]">
-      <div className="text-xl font-medium leading-[100%]">Tất cả sản phẩm</div>
+    <div className="flex flex-1 flex-col gap-[14px] bg-white px-[16px] pt-[20px]">
+      {!compact && !isSearching ? (
+        <div className="text-xl font-medium leading-[100%]">
+          Tất cả sản phẩm
+        </div>
+      ) : null}
       <div
         className={clsx("grid grid-flow-row grid-cols-2 gap-[12px]", {
           "!grid-cols-1": compact,
@@ -26,15 +31,13 @@ const ProductList: FC<Props> = ({
       >
         {data.map((product, index) => (
           <React.Fragment key={index}>
+            {compact ? <Divider className="m-0" /> : null}
             <ProductListItem
               product={product}
               direction={direction}
               compact={compact}
               hideImage={hideImage}
             />
-            {compact && index < data.length - 1 ? (
-              <Divider className="m-0" />
-            ) : null}
           </React.Fragment>
         ))}
       </div>
@@ -104,6 +107,7 @@ type Props = {
   direction?: direction;
   compact?: boolean;
   hideImage?: boolean;
+  isSearching?: boolean;
 };
 
 type Product = {

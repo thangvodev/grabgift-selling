@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Banner } from "./banner";
 import { Filters } from "./filters";
 import ProductList from "./product-list";
 import { Divider } from "antd";
 import clsx from "clsx";
+import Searchbar from "./searchbar";
 
-const Layout = () => {
+const Layout: FC<Props> = ({ isSearching }) => {
   const [direction, setDirection] = useState<direction>("horizontal");
   const [hideFilter, setHideFilter] = useState(false);
   const [hideBanner, setHideBanner] = useState(false);
@@ -13,7 +14,7 @@ const Layout = () => {
   const [hideImage, setHideImage] = useState(false);
 
   return (
-    <div className="pb-[78px]">
+    <div className="pb-[80px]">
       <Banner hidden={hideBanner} />
       <>
         {direction === "vertical" ? (
@@ -28,8 +29,16 @@ const Layout = () => {
             "flex-col": direction === "horizontal",
           })}
         >
-          <Filters direction={direction} hidden={hideFilter} />
-          {direction === "horizontal" ? (
+          {isSearching ? (
+            <Searchbar />
+          ) : (
+            <Filters
+              direction={direction}
+              hidden={hideFilter}
+              compact={compact}
+            />
+          )}
+          {!compact && !isSearching && direction === "horizontal" ? (
             <Divider
               className={clsx("m-0 border-[3px] border-stroke3", {
                 hidden: hideFilter,
@@ -40,6 +49,7 @@ const Layout = () => {
             direction={direction}
             compact={compact}
             hideImage={hideImage}
+            isSearching={isSearching}
           />
         </div>
       </>
@@ -50,3 +60,7 @@ const Layout = () => {
 export default Layout;
 
 export type direction = "vertical" | "horizontal";
+
+type Props = {
+  isSearching?: boolean;
+};
